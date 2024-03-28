@@ -5,9 +5,9 @@ const page = () => {
   return (
     <div>
       About Page
-      <Button color="primary" onClick={throwError()}>
+      {/* <Button color="primary" onClick={throwError()}>
         Error Button
-      </Button>
+      </Button> */}
     </div>
   )
 }
