@@ -6,6 +6,8 @@ import {
   NavbarContent,
   NavbarItem,
   Button,
+  NavbarMenu,
+  NavbarMenuItem,
 } from "@nextui-org/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,8 +16,9 @@ import { navbarItemLink } from "./menu";
 
 export default function NavbarComponent() {
   const pathname = usePathname();
-  if (pathname.includes("/dashboard")) return null;
-  else
+  if(pathname === "/login" || pathname === "/signup"){
+    return null
+  }
     return (
       <Navbar className="bg-blue-200">
         <NavbarBrand>
@@ -34,14 +37,14 @@ export default function NavbarComponent() {
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
-            <Link href="#">Login</Link>
+            <Link href="/dashboard">Dashboard</Link>
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} color="primary" href="/dashboard" variant="flat">
-              Dashboard
+            <Button as={Link} color="primary" href="/Login" variant="flat">
+              Login
             </Button>
           </NavbarItem>
         </NavbarContent>
-      </Navbar>
-    );
+    </Navbar>
+  );
 }
